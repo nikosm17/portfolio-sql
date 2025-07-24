@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Tektur:wght@400..900&display=swap');
+
+* {
+  font-family: 'Tektur', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+#webgl-clouds {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+
+.cloud-container {
+  position: relative;
+  width: 100%;
+  height: 100dvh;
+  background: linear-gradient(180deg, #8144e2, #9ac9e9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  z-index: 1;
+}
+
+
+.cloud-container .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  z-index: 2;
+}
+
+
+.cloud-container .content button {
+  font-size: 3rem;
+  padding: 1rem 3rem;
+  margin-top: 70px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  color: white;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  text-shadow: 2px 2px 4px #000;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 0.6s ease, box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+
+.cloud-container .content button.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.cloud-container .content button:hover {
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 20px #8144e2, 0 0 30px #8144e2;
+  transform: scale(1.05);
+  color: #ffeaff;
+  text-shadow: 0 0 8px #fff;
+}
+
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #ffffff;
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  margin-left: 10px;
+  animation: spin 1s linear infinite;
+  display: none;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+button.loading .spinner {
+  display: inline-block;
+}
+
+button.loading .btn-text {
+  opacity: 0.5;
+}
+
+
+@media (max-width: 768px) {
+  .cloud-container .content button {
+    font-size: 2rem;
+    padding: 0.8rem 2rem;
+  }
+}
+
+
+.cloud-container .clouds {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cloud-container .clouds img {
+  position: absolute;
+  bottom: 0;
+  max-width: 100%;
+  animation: animate calc(9s * var(--i)) linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  25%, 75% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.6;
+    transform: scale(3);
+  }
+}
+#login-form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 25%;
+  height: 29vh;  
+  background-color: #00000025;
+  border-radius: 50px;
+  visibility: hidden;  
+  padding-left: 130px;
+  padding-top: 30px;
+  padding-bottom: 80px;
+  box-sizing: border-box; 
+  z-index: 2;
+}
+.popup{
+  transform: translate(-50%, -50%) scale(0.1);
+  width: 120%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 0 30px 30px;
+  visibility: hidden;
+  transition: transform 0.4s, top 0.4s;
+  z-index: 3;
+}
+.open-popup{
+  visibility: visible;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1);
+}
+#signup-form{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 29%;
+  height: 40vh;  
+  background-color: #00000025;
+  border-radius: 50px;  
+  padding-left: 150px;
+  padding-top: 30px;
+  padding-bottom: 80px;
+  box-sizing: border-box; 
+  z-index: 2;
+
+}
+#signup-btn{
+  position: absolute;
+  top: 29vh;
+  left: 50%;
+  transform: translate(-50%, 0);
+  padding: 12px 24px;
+  background-color: #51329b96;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+}
+#signup-btn:hover{
+  background-color: #000;
+  color: #8144e2;
+}
+#btn{
+  position: absolute;
+  top: 19vh;
+  left: 50%;
+  transform: translate(-50%, 0);
+  padding: 12px 24px;
+  background-color: #51329b96;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+}
+#btn:hover{
+    background-color: #000000bc;
+}
+#logName, #password {
+  background-color: #e0f7fa;      
+  color: #51329b96;                 
+  border: 2px solid #51329b96;       
+  border-radius: 15px;             
+  outline: invert;
+  padding: 10px 10px;
+}
+#signupName, #signupPassword, #confirmPassword {
+  background-color: #e0f7fa;      
+  color: black;                 
+  border: 2px solid #51329b96;       
+  border-radius: 15px;             
+  padding: 10px 10px;
+  left: 50%;
+  margin-left: 60px;
+}
+  .sign-in-btn{
+  position: absolute;
+  top: 30vh;
+  left: 50%;
+  transform: translate(-50%, 0);
+  padding: 15px 50px;
+  background-color: transparent;
+  color: #51329b96;
+  border: none;
+  border-radius: 0;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: none;
+  transition: background-color 0.3s ease;
+  }
+  .sign-in-btn:hover{
+    background-color: #51329b96;
+    color: #fff;
+}
+#signup-form legend {
+ margin-left: 60px;
+}

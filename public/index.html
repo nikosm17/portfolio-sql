@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Login UI with animated WebGL clouds background." />
+  <title>Cloud Login</title>
+
+  
+  <link rel="stylesheet" href="style.css" />
+
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  
+  <div id="webgl-clouds"></div>
+
+  
+  <div class="cloud-container">
+    <div class="content">
+      <button id="text">
+        <span class="btn-text">Login</span>
+        <span class="spinner"></span>
+      </button>
+    </div>
+
+    
+    <div class="clouds">
+      <img src="cloud1.png" style="--i:1;">
+      <img src="cloud2.png" style="--i:2;">
+      <img src="cloud3.png" style="--i:3;">
+      <img src="cloud4.png" style="--i:4;">
+      <img src="cloud5.png" style="--i:5;">
+      <img src="cloud1.png" style="--i:6;">
+      <img src="cloud2.png" style="--i:7;">
+      <img src="cloud3.png" style="--i:8;">
+      <img src="cloud4.png" style="--i:9;">
+      <img src="cloud5.png" style="--i:10;">
+    </div>
+
+    
+    <form method="POST" action="nextpage.html" id="login-form">
+      <legend>Name</legend>
+      <input type="text" name="email" id="logName" required />
+      <legend>Password</legend>
+      <input type="password" name="password" id="password" required />
+      <button type="submit" id="btn">Submit</button>
+      <button type="button" class="sign-in-btn" id="sign-in-btn" onclick="openPopup()">--Sign up--</button>
+    </form>
+<div class="popup" id="popup">
+    <form method="POST" action="/register" id="signup-form">
+      <legend>Name</legend>
+      <input type="text" name="email" id="signupName" required />
+      <legend id="pass1">Password</legend>
+      <input type="password" name="password" id="signupPassword" required />
+      <legend id="pass2">Confirm Password</legend>
+      <input type="password" name="confirmPassword" id="confirmPassword" required />
+      <button type="submit" id="signup-btn">Register</button>
+    </form>
+</div>
+  </div>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+  <script src="clouds3d.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
